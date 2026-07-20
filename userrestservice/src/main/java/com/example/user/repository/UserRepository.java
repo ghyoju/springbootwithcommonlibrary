@@ -9,4 +9,7 @@ import com.example.user.entity.UserEntity;
 
 @Repository
 public interface UserRepository extends GenericRepository<UserEntity, Long> {
+	
+	boolean existsByEmail(String email);
+	
 }

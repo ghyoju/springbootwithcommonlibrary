@@ -1,6 +1,7 @@
 package com.example.user.service;
 
 import com.example.user.entity.UserEntity;
+import com.example.user.exception.UserAlreadyExistsException;
 import com.example.user.repository.UserRepository;
 
 import java.util.List;
@@ -19,11 +20,16 @@ public class UserService {
         return userRepository.findAll();
     }
 
-    public Optional<UserEntity> getUserById(Long id) {
-        return userRepository.findById(id);
+    public UserEntity getUserById(Long id) {
+    	 Optional<UserEntity> userOptional = userRepository.findById(id);
+         return userOptional.orElse(null);
     }
 
     public void saveUser(UserEntity user) {
-    	userRepository.save(user);
+    	if (userRepository.existsByEmail(user.getEmail())) {
+            throw new UserAlreadyExistsException("User with email " + user.getEmail() + " already exists");
+        }
+        userRepository.save(user);
     }
+    
 }
