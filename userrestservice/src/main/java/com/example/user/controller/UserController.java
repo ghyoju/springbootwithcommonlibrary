@@ -25,13 +25,13 @@ public class UserController {
     @GetMapping
     @Operation(summary = "Get all users")
     public ResponseEntity<List<UserEntity>> getAllUsers() {
-        return new ResponseEntity<>(userService.getAllUsers(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     @Operation(summary = "Get userById")
     public ResponseEntity<UserEntity> getUserById(@PathVariable Long id) {
-        UserEntity user = userService.getUserById(id);
+        UserEntity user = userService.get(id);
         if (user == null) {
             throw new UserNotFoundException("User with ID " + id + " not found");
         }
@@ -42,7 +42,7 @@ public class UserController {
     @Operation(summary = "Save user")
     public ResponseEntity saveUser(@RequestBody UserEntity user) {
         try {
-            userService.saveUser(user);
+            userService.update(user);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (UserAlreadyExistsException e) {
             throw new RuntimeException(e.getMessage(), e);

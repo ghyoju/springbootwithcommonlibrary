@@ -1,6 +1,10 @@
 package com.example.common.service;
 
 import com.example.common.repository.GenericRepository;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +17,9 @@ public class DataService<T, ID extends Serializable> {
 
     @Autowired
     private GenericRepository<T, ID> repository;
+    
+    @PersistenceContext
+    private EntityManager em;
 
     public List<T> getAllData() {
         return repository.findAll();
