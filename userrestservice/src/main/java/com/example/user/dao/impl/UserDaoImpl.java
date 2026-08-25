@@ -22,7 +22,7 @@ public class UserDaoImpl extends GenericHibernateDaoImpl<UserEntity, Long>
 
         return getSession()
                 .createSelectionQuery(
-                        "from User where email=:email",
+                        "from UserEntity where email=:email",
                         UserEntity.class)
                 .setParameter("email", email)
                 .uniqueResultOptional();

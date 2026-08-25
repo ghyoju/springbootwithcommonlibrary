@@ -4,11 +4,15 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 import com.example.user.entity.UserEntity;
 import com.example.user.repository.UserRepository;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.example.user", "com.example.user.dao", "com.example.user.dao.impl",
+        "com.example.user.service", "com.example.user.service.impl"})
+
 public class UserApplication {
 
 	public static void main(String[] args) {
