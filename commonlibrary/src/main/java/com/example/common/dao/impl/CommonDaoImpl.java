@@ -3,7 +3,7 @@ package com.example.common.dao.impl;
 
 import org.springframework.stereotype.Repository;
 
-import com.example.common.dao.UserDao;
+import com.example.common.dao.CommonDao;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
 @Repository
-public class UserDaoImpl implements UserDao {
+public class CommonDaoImpl implements CommonDao {
 
     @PersistenceContext
     private EntityManager entityManager;

@@ -15,10 +15,10 @@ import com.example.common.config.CommonConfig;
 
 
 @SpringJUnitConfig(classes = CommonConfig.class)
-class UserDaoTest {
+class CommonDaoTest {
 
     @Autowired
-    private UserDao userDao;
+    private CommonDao userDao;
 
     @Test
     void shouldGetUsersUsingNativeQuery() {
