@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:mem:commondb;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS MYSCHEMA\;SET SCHEMA MYSCHEMA
     username: sa
     password:
     driver-class-name: 
