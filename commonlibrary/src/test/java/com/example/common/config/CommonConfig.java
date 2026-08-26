@@ -31,7 +31,8 @@ public class CommonConfig {
 
         return DataSourceBuilder.create()
                 .driverClassName("org.h2.Driver")
-                .url("jdbc:h2:mem:commondb;DB_CLOSE_DELAY=-1")
+                //.url("jdbc:h2:mem:commondb;DB_CLOSE_DELAY=-1")
+                .url("jdbc:h2:mem:commondb;DB_CLOSE_DELAY=-1;INIT=CREATE SCHEMA IF NOT EXISTS MYSCHEMA\\;SET SCHEMA MYSCHEMA")
                 .username("sa")
                 .password("")
                 .build();
