@@ -14,9 +14,7 @@
 	</parent>
 
 <properties>
-	<java.version>25</java.version>
-	<maven.compiler.release>${java.version}</maven.compiler.release>
-	<maven.compiler.proc>full</maven.compiler.proc>
+	<java.version>21</java.version>
 </properties>
 
 	<dependencies>
@@ -33,6 +31,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>tools.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
@@ -58,6 +60,15 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
+        
+	    <!-- PostgreSQL JDBC Driver -->
+	    <dependency>
+	        <groupId>org.postgresql</groupId>
+	        <artifactId>postgresql</artifactId>
+	        <version>42.7.3</version>
+	    </dependency>
+
+       
 	</dependencies>
 
 	<build>
